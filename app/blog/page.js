@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PageTitle from '../components/PageTitle';
 
 export const revalidate = 60; // seconds
 
@@ -7,12 +8,22 @@ async function getPosts() {
     return posts.json();
 }
 
+const breadcrumbs = [
+    { title: 'Home', slug: '/' },
+    { title: 'Blog', slug: '/blog' },
+];
+
+
 export default async function Blog() {
     const posts = await getPosts();
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-24">
-            <h1 className="text-center">Blog</h1>
+        <main className="flex min-h-screen flex-col items-center p-24 pt-0">
+            <PageTitle 
+                title={breadcrumbs[1].title} 
+                crumbs={breadcrumbs}
+                color={'text-white'}
+            />
             <div className='grid grid-cols-3 gap-4'>
                 {posts.map(post => (
                     <article key={post.id}>
