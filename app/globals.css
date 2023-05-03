@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -18,12 +19,12 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    @apply font-body bg-rose-light
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: rgb(var(--foreground-rgb));
-    @apply mb-4 font-bold;
+    @apply mb-4 font-bold font-heading;
 }
 
 h1 {
@@ -52,4 +53,9 @@ h6 {
 
 p {
     @apply mb-4;
+}
+
+.container {
+    @apply mx-auto px-4;
+    max-width: 1420px;
 }

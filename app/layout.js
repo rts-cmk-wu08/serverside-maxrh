@@ -1,8 +1,19 @@
+"use client"
+
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Syne, DM_Sans } from 'next/font/google'
 import Header from './components/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+const syne = Syne({ 
+    subsets: ['latin'],
+    variable: '--font-syne',
+})
+
+const dm_sans = DM_Sans({ 
+    subsets: ['latin'],
+    variable: '--font-dm_sans',
+    weight: ['400', '500', '700'],
+})
 
 export const metadata = {
     title: 'Create Next App',
@@ -12,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`${syne.variable} ${dm_sans.variable} font-body`} >
                 <div className='page-container'>
                     <Header />
                     {children}

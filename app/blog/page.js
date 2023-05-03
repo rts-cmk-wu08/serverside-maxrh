@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageTitle from '../components/PageTitle';
+import Image from 'next/image'
 
 export const revalidate = 60; // seconds
 
@@ -18,23 +19,34 @@ export default async function Blog() {
     const posts = await getPosts();
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-24 pt-0">
+        <main className="container flex min-h-screen flex-col items-center p-24 pt-0">
             <PageTitle 
-                title={breadcrumbs[1].title} 
+                title={breadcrumbs[breadcrumbs.length - 1].title} 
                 crumbs={breadcrumbs}
                 color={'text-white'}
+                bgcolor={'bg-slate-900'}
+                opacity={'opacity-50'}
+                height={'h-80'}
             />
             <div className='grid grid-cols-3 gap-4'>
                 {posts.map(post => (
-                    <article key={post.id}>
+                    <article key={post.id} className='text-center'>
                         <Link href={`/blog/${post.id}`}>
-                            <img src={`https://picsum.photos/600/400?random-${post.id}`} alt={post.title} className='mb-4'/>
+                            <Image 
+                                src={`https://picsum.photos/600/400?random-${post.id}`} 
+                                alt={post.title} 
+                                className='mb-4'
+                                style={{ transform: "translate3d(0, 0, 0)" }}
+                                width={600}
+                                height={400}
+                                loading={"lazy"}
+                            />
                         </Link>
                         <Link href={`/blog/${post.id}`}>
-                            <h2 className='text-2xl'>{post.title}</h2>
+                            <h2 className='text-xl mb-1'>{post.title}</h2>
                         </Link>
 
-                        <p>{post.subtitle}</p>
+                        <p>{post.subtitle.split('?')[0] + '.'}</p>
                         
                     </article>
                 ))}
