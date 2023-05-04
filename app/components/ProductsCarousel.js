@@ -10,8 +10,8 @@ export default async function ProductsCarousel() {
     const products = await getProducts();
 
     return (
-        <div className="products-carousel">
-            <h2>Our Products</h2>
+        <div className="products-carousel text-center">
+            <h2 className='mb-10'>Our Products</h2>
 
             <div className='grid grid-cols-4 gap-4'>
                 {products.map(product => (
@@ -31,7 +31,7 @@ export default async function ProductsCarousel() {
                             <h2 className='text-xl mb-1'>{product.name}</h2>
                         </Link>
 
-                        <p>{product.price}</p>
+                        <p className='text-red-500'>${product.price}.00</p>
                         
                     </article>
                 ))}

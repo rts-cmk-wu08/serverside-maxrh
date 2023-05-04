@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link';
 
 async function getStarted() {
     const posts = await fetch('https://swanky-api.onrender.com/started');

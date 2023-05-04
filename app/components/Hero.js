@@ -10,7 +10,7 @@ export default async function Hero() {
   const offers = await getOffers();
 
   return (
-    <div className="hero-container">
+    <div className="hero-container w-screen mb-32">
       <HeroSlider offers={offers}/>
     </div>
   );

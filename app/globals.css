@@ -53,3 +53,12 @@ p {
 .section {
     @apply mb-20;
 }
+
+.hero {
+    overflow: hidden;
+    height: 700px;
+}
+
+.hero-inner {
+    height: 600px;
+}
