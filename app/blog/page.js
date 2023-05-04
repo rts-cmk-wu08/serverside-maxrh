@@ -14,7 +14,6 @@ const breadcrumbs = [
     { title: 'Blog', slug: '/blog' },
 ];
 
-
 export default async function Blog() {
     const posts = await getPosts();
 

@@ -1,5 +1,3 @@
-"use client"
-
 import './globals.css'
 import { Syne, DM_Sans } from 'next/font/google'
 import Header from './components/Header'

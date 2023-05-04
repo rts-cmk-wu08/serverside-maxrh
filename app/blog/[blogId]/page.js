@@ -1,22 +1,18 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import PageTitle from '../../components/PageTitle';
 
-async function getPost(id) {
-    const post = await fetch(`https://swanky-api.onrender.com/posts/${id}`);
+async function getPost(blogId) {
+    const post = await fetch(`https://swanky-api.onrender.com/posts/${blogId}`);
     return post.json();
 }
 
-export default async function Post() {
-    const id = useParams().blogId;
-    const post = await getPost(id);
 
+export default async function Post({params: { blogId }}) {
+    const post = await getPost(blogId);
 
     const breadcrumbs = [
         { title: 'Home', slug: '/' },
         { title: 'Blog', slug: '/blog' },
-        { title: 'Blog Detail', slug: `/blog/${id}` },
+        { title: 'Blog Detail', slug: `/blog/${blogId}` },
     ];
 
     return (
