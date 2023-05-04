@@ -1,11 +1,18 @@
 import HeroSlider from './HeroSlider';
+
+async function getOffers() {
+  const offers = await fetch(`https://swanky-api.onrender.com/offers`);
+  return offers.json();
+}
   
-const Hero = () => {
+export default async function Hero() {
+
+  const offers = await getOffers();
+
   return (
     <div className="hero-container">
-      <HeroSlider />
+      <HeroSlider offers={offers}/>
     </div>
   );
 };
 
-export default Hero;

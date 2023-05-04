@@ -5,7 +5,6 @@ async function getPost(blogId) {
     return post.json();
 }
 
-
 export default async function Post({params: { blogId }}) {
     const post = await getPost(blogId);
 
